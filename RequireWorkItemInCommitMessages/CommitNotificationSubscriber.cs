@@ -41,6 +41,9 @@ namespace RequireWorkItemInCommitMessages
                     ITfsGitRepository gitRepository = repositoryService.FindRepositoryById(requestContext,
                         pushNotification.RepositoryId))
                 {
+                    // TODO: gitRepository.Name should probably equal "Estream". Company wide TFS instance!
+                    // TODO: Also, this name should not be hard coded and should be a collection.
+
                     foreach (Sha1Id item in pushNotification.IncludedCommits)
                     {
                         TfsGitCommit gitCommit = (TfsGitCommit) gitRepository.LookupObject(item);
