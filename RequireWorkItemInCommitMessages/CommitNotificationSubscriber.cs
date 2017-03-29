@@ -49,7 +49,7 @@ namespace RequireWorkItemInCommitMessages
 
                         if (!CommitRules.IsCommitAcceptable(comment))
                         {
-                            statusMessage = "Non-merge commits must contain links to TFS (i.e. #12345).";
+                            statusMessage = $"Non-merge commits must contain links to TFS (i.e. #12345) [Repository Name: {gitRepository.Name}].";
                             return EventNotificationStatus.ActionDenied;
                         }
                     }
