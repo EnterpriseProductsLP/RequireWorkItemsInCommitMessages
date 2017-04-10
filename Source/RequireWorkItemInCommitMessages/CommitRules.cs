@@ -12,12 +12,12 @@ using System.Text.RegularExpressions;
 
 namespace RequireWorkItemsInCommitMessages
 {
-    public class CommitRules
+    public static class CommitRules
     {
         private static bool HasWorkItem(string comment)
         {
             var matches = Regex.Matches(comment, "\\#[0-9]*");
-            return (matches.Count > 0);
+            return matches.Count > 0;
         }
 
         private static bool IsMerge(string comment)
