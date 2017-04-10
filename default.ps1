@@ -28,7 +28,7 @@ function Test-ReparsePoint([string]$path) {
 
 
 # Psake tasks -------------------------------------------------------------------------------------
-task default -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
+task default -depends CleanAll, RestorePackages, BuildDebug, BuildRelease
 
 task ? -description "Writes task documentation to the console." {
     WriteDocumentation
