@@ -9,12 +9,13 @@
 // -----------------------------------------------------------------------
 
 using System;
+
 using Microsoft.TeamFoundation.Common;
 using Microsoft.TeamFoundation.Framework.Server;
 using Microsoft.TeamFoundation.Git.Server;
 
 // See http://almsports.net/tfs-server-side-check-in-policy-for-git-repositories/1025/
-namespace RequireWorkItemInCommitMessages
+namespace RequireWorkItemsInCommitMessages
 {
     public class CommitNotificationSubscriber : ISubscriber
     {

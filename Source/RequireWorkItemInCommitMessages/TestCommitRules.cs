@@ -8,10 +8,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using NUnit.Framework;
 using FluentAssertions;
 
-namespace RequireWorkItemInCommitMessages
+using NUnit.Framework;
+
+namespace RequireWorkItemsInCommitMessages
 {
     [TestFixture]
     class TestCommitRules

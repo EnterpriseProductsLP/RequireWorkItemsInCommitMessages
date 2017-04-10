@@ -7,8 +7,8 @@
     <ProjectGuid>{AC4B2984-E0A9-466E-B481-105452AADDF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RequireWorkItemInCommitMessages</RootNamespace>
-    <AssemblyName>RequireWorkItemInCommitMessages</AssemblyName>
+    <RootNamespace>RequireWorkItemsInCommitMessages</RootNamespace>
+    <AssemblyName>RequireWorkItemsInCommitMessages</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
