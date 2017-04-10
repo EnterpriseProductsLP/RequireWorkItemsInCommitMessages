@@ -7,6 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireWorkItemsInCommitMes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequireWorkItemsInCommitMessages.UnitTests", "RequireWorkItemsInCommitMessages.UnitTests\RequireWorkItemsInCommitMessages.UnitTests.csproj", "{BEECCCCB-C22D-4A69-8FF5-C0F9ADB56C05}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8E6F1550-CAD6-4AAA-937D-EA82BFA690CC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\nuget.exe = .nuget\nuget.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A681FAF2-A6EB-4BBC-A22F-D4C3CB5BB09F}"
+	ProjectSection(SolutionItems) = preProject
+		AssemblyVersionInfo.cs = AssemblyVersionInfo.cs
+		StrongNameKey.snk = StrongNameKey.snk
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
