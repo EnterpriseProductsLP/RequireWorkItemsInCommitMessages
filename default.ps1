@@ -80,5 +80,5 @@ task RestorePackages -description "Restores all nuget packages in the solution."
 }
 
 task Start:VisualStudio -description "Opens Reflections.sln in Visual Studio" {
-    Invoke-Item .\Source\Reflections.sln
+    Invoke-Item $solutionFile
 }
