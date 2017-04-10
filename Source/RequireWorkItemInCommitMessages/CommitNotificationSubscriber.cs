@@ -21,11 +21,15 @@ namespace RequireWorkItemsInCommitMessages
     {
         public Type[] SubscribedTypes()
         {
-            return new Type[1] {typeof(PushNotification)};
+            return new Type[1] { typeof(PushNotification) };
         }
 
-        public EventNotificationStatus ProcessEvent(IVssRequestContext requestContext, NotificationType notificationType,
-            object notificationEventArgs, out int statusCode, out string statusMessage,
+        public EventNotificationStatus ProcessEvent(
+            IVssRequestContext requestContext,
+            NotificationType notificationType,
+            object notificationEventArgs,
+            out int statusCode,
+            out string statusMessage,
             out ExceptionPropertyCollection properties)
         {
             statusCode = 0;
@@ -34,26 +38,27 @@ namespace RequireWorkItemsInCommitMessages
 
             if (notificationType == NotificationType.DecisionPoint && notificationEventArgs is PushNotification)
             {
-                PushNotification pushNotification = notificationEventArgs as PushNotification;
+                var pushNotification = notificationEventArgs as PushNotification;
 
                 var repositoryService = requestContext.GetService<ITeamFoundationGitRepositoryService>();
 
-                using (
-                    ITfsGitRepository gitRepository = repositoryService.FindRepositoryById(requestContext,
-                        pushNotification.RepositoryId))
+                using (var gitRepository = repositoryService.FindRepositoryById(
+                    requestContext,
+                    pushNotification.RepositoryId))
                 {
                     // TODO: gitRepository.Name should probably equal "Estream". Company wide TFS instance!
                     // TODO: Also, this name should not be hard coded and should be a collection.
 
-                    foreach (Sha1Id item in pushNotification.IncludedCommits)
+                    foreach (var item in pushNotification.IncludedCommits)
                     {
-                        TfsGitCommit gitCommit = (TfsGitCommit) gitRepository.LookupObject(item);
+                        var gitCommit = (TfsGitCommit)gitRepository.LookupObject(item);
 
                         var comment = gitCommit.GetComment(requestContext);
 
                         if (!CommitRules.IsCommitAcceptable(comment))
                         {
-                            statusMessage = $"Non-merge commits must contain links to TFS (i.e. #12345) [Repository Name: {gitRepository.Name}].";
+                            statusMessage =
+                                $"Non-merge commits must contain links to TFS (i.e. #12345) [Repository Name: {gitRepository.Name}].";
                             return EventNotificationStatus.ActionDenied;
                         }
                     }
@@ -64,6 +69,7 @@ namespace RequireWorkItemsInCommitMessages
         }
 
         public string Name => "Commit Notification Subscriber";
+
         public SubscriberPriority Priority => SubscriberPriority.Normal;
     }
 }

@@ -12,10 +12,10 @@ using FluentAssertions;
 
 using NUnit.Framework;
 
-namespace RequireWorkItemsInCommitMessages
+namespace RequireWorkItemsInCommitMessages.UnitTests
 {
     [TestFixture]
-    class TestCommitRules
+    internal class TestCommitRules
     {
         [Test]
         public void Example1()
@@ -52,6 +52,7 @@ namespace RequireWorkItemsInCommitMessages
         {
             CommitRules.IsCommitAcceptable("Fixed migration and merge from release branch").Should().BeFalse();
         }
+
         [Test]
         public void BadExample3()
         {
